@@ -7,6 +7,8 @@ import filetype
 app = Flask(__name__)
 
 TELEGRAM_TOKEN = os.getenv("7847051947:AAGkCnIoaGiWoiA3-Tq_ih_iq-aAzj8zr04")
+if not TELEGRAM_TOKEN:
+    raise ValueError("❌ TELEGRAM_TOKEN is not set. Please add it in environment variables on Render.")
 bot = Bot(token=TELEGRAM_TOKEN)
 
 # Dispatcher สำหรับจัดการข้อความ
